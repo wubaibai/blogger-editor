@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import gapi from 'GOOGLEAPI'; // eslint-disable-line
 
+import { apiDomain } from './appConfig';
 import googleConfig from './googleConfig';
 import handleErrorRequest from './handleErrorRequest';
 
@@ -13,7 +14,7 @@ const user = {
 
 const getPicasaData = () => {
 	fetch(
-		`https://picasaweb.google.com/data/feed/api/user/default?alt=json&access_token=${user.token}`,
+		`${apiDomain}/data/feed/api/user/default?alt=json&access_token=${user.token}`,
 	)
 		.then((response) => handleErrorRequest(response))
 		.then((response) => {
