@@ -62,13 +62,6 @@ const webpackBuildConfig = {
 			sourceMap: true,
 		}),
 
-		new CopyWebpackPlugin([
-			{
-				from: 'src/robots.txt',
-				to: 'robots.txt',
-			},
-		]),
-
 		// Extract the CSS into a seperate file
 		new ExtractTextPlugin(`${process.env.NODE_ENV === 'production' ? '' : '[name].'}[contenthash:13].css`),
 
