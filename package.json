@@ -15,7 +15,7 @@
     "postdemo": "npm run clean:manifest",
     "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.build.babel.js",
-    "postbuild": "node sitemap.js && npm run clean:manifest",
+    "postbuild": "npm run clean:manifest",
     "release": "standard-version",
     "commit": "git-cz"
   },
@@ -24,9 +24,8 @@
     "url": "https://fox.25sprout.com:10088/frontend/pug-starter.git"
   },
   "keywords": [
-    "25sprout",
-    "Starter",
-    "Pug"
+    "Blogger",
+    "Google Photo"
   ],
   "author": "Eddie Wen <eddiewen.tw@gmail.com> (http://eddiewen.me)",
   "devDependencies": {
