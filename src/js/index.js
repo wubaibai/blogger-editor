@@ -25,17 +25,13 @@ const getPicasaData = () => {
 	// 	console.log('ERR:');
 	// });
 
-	const myHeader = new Headers({
-		Authorization: `Bearer ${user.token}`,
-		'Access-Control-Allow-Origin': '*',
-	});
+	// const myHeader = new Headers({
+	// 	Authorization: `Bearer ${user.token}`,
+	// 	'Access-Control-Allow-Origin': '*',
+	// });
 
 	fetch(
-		`https://picasaweb.google.com/data/feed/api/user/default?alt=json`,
-		{
-			mode: 'cors',
-			headers: myHeader,
-		},
+		`https://picasaweb.google.com/data/feed/api/user/default?alt=json&access_token=${user.token}`,
 	)
 		.then((response) => {
 			console.log(response);
