@@ -28,3 +28,7 @@
 	overflow: hidden;
 	clear: both;
 }
+
+body {
+	background: #EEE;
+}

@@ -3,17 +3,15 @@ import { user } from '../appVariable';
 
 import handleErrorRequest from './handleErrorRequest';
 
-const getPicasaData = () => (
+const getPicasaPhoto = (albumId) => (
 	fetch(
 		`${apiDomain}
-		/data/feed/api/user/default
+		/data/feed/api/user/default/albumid/${albumId}
 		?alt=json
-		&kind=album
 		&v=3.0
-		&access=private
 		&access_token=${user.token}
 	`)
 		.then((response) => handleErrorRequest(response))
 );
 
-export default getPicasaData;
+export default getPicasaPhoto;

@@ -1,28 +1,36 @@
+import $ from 'jquery';
 import gapi from 'GOOGLEAPI'; // eslint-disable-line
 
-import { user, albums } from './appVariable';
+import { user } from './appVariable';
 import googleConfig from './googleConfig';
-import getPicasaData from './request/getPicasaData';
-import { filterAlbumTitle } from './album';
 
 const updateSigninStatus = (isSignedIn) => {
 	if (!isSignedIn) {
+		$('.login-wrap').addClass('_show');
+
 		return;
 	}
 
+	$('.login-wrap').removeClass('_show');
 	user.data = gapi.auth2.getAuthInstance().currentUser.get();
 	user.token = user.data.getAuthResponse().access_token;
 
-	getPicasaData()
-		.then(({ feed }) => {
-			albums.data = feed.entry;
-		})
-		.then(() => {
-			filterAlbumTitle('@')
-				.forEach((album) => {
-					console.log(album.title.$t);
-				});
-		});
+	// getPicasaAlbum()
+	// 	.then(({ feed }) => {
+	// 		albums.data = feed.entry;
+	// 	})
+	// 	.then(() => {
+	// 		filterAlbumTitle('@')
+	// 			.forEach((album) => {
+	// 				console.log(album);
+	// 			});
+	// 	});
+
+	// getPicasaPhoto()
+	// 	.then(({ feed }) => feed.entry)
+	// 	.then((photos) => {
+	// 		console.log(photos);
+	// 	});
 };
 
 const initClient = () => {
