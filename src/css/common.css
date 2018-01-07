@@ -1,5 +1,13 @@
 @import 'reset.css';
 
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 13.5px;
+}
+
 /* --- Align & Float --- */
 
 .center {
@@ -27,8 +35,4 @@
 	height: 1px;
 	overflow: hidden;
 	clear: both;
-}
-
-body {
-	background: #EEE;
 }

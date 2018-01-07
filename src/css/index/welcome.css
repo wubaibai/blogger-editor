@@ -6,6 +6,8 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
+	position: fixed;
+	z-index: 999;
 
 	& #btn-sign-in {
 		text-align: center;
@@ -25,5 +27,51 @@
 
 	&._show {
 		display: flex;
+	}
+}
+
+#main {
+	display: flex;
+
+	& #editor {
+		width: 60%;
+
+		& .article {
+			height: calc(100vh - 52px);
+			background-color: #1E2126;
+			color: #ABB2BF;
+			padding: 10px;
+		}
+
+		& .quick-insert {
+			padding: 6px 10px;
+			background: #1C1C1E;
+			border-top: 1px solid #343434;
+			color: #CCC;
+
+			& > * {
+				display: inline-flex;
+				margin: 8px;
+				padding: 4px 6px;
+				background: #CCC;
+				color: #1C1C1E;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	& #photo-selector {
+		width: 40%;
+		background: #CCC;
+
+		& .album-control {
+			height: 60px;
+			padding: 10px;
+		}
+
+		& .photo-list {
+			height: calc(100vh - 60px);
+		}
 	}
 }

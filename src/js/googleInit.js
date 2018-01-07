@@ -14,23 +14,6 @@ const updateSigninStatus = (isSignedIn) => {
 	$('.login-wrap').removeClass('_show');
 	user.data = gapi.auth2.getAuthInstance().currentUser.get();
 	user.token = user.data.getAuthResponse().access_token;
-
-	// getPicasaAlbum()
-	// 	.then(({ feed }) => {
-	// 		albums.data = feed.entry;
-	// 	})
-	// 	.then(() => {
-	// 		filterAlbumTitle('@')
-	// 			.forEach((album) => {
-	// 				console.log(album);
-	// 			});
-	// 	});
-
-	// getPicasaPhoto()
-	// 	.then(({ feed }) => feed.entry)
-	// 	.then((photos) => {
-	// 		console.log(photos);
-	// 	});
 };
 
 const initClient = () => {

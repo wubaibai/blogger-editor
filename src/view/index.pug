@@ -11,6 +11,26 @@ html(lang='zh-Hant')
 
 	body
 
-		.login-wrap
-			#btn-sign-in
-				img(src=require('../images/login-button.png'))
+		#main
+			#editor
+				.article
+					| 編輯器
+
+				.quick-insert
+					| 快速元件
+					.quick-caption Caption
+					.quick-lable Lable
+					.quick-tour Tour
+					.quick-rating Rating
+					.quick-highlight Highlight
+
+			#photo-selector
+				.album-control
+					| 相簿編號
+					input.album-id-input(placeholder='編號')
+					button#btn-load-album 設定
+
+				.photo-list
+					| 照片
+
+		include ./common/login.pug
