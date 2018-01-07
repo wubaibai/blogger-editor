@@ -23,7 +23,7 @@ const webpackBuildConfig = {
 		publicPath: websiteJson.multiLanguage ?
 			(websiteJson.domain.asset.value ? `//${websiteJson.domain.asset.value}/` : '/assets/')
 		:
-			'/',
+			'/blogger-editor/',
 	},
 	module: {
 		rules: base.module.rules.concat(
