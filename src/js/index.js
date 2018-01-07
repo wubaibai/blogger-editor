@@ -2,6 +2,7 @@ import $ from 'jquery';
 import gapi from 'GOOGLEAPI'; // eslint-disable-line
 
 import googleConfig from './googleConfig';
+import handleErrorRequest from './handleErrorRequest';
 
 import '../css/index/welcome.css';
 
@@ -11,28 +12,10 @@ const user = {
 };
 
 const getPicasaData = () => {
-	console.log('getPicasaData');
-
-	// gapi.client.request({
-	// 	path: 'https://picasaweb.google.com/data/feed/api/user/default',
-	// 	params: {
-	// 		access_token: encodeURIComponent(user.token),
-	// 	},
-	// }).then((response) => {
-	// 	console.log('OK:');
-	// 	console.log(response);
-	// }, () => {
-	// 	console.log('ERR:');
-	// });
-
-	// const myHeader = new Headers({
-	// 	Authorization: `Bearer ${user.token}`,
-	// 	'Access-Control-Allow-Origin': '*',
-	// });
-
 	fetch(
 		`https://picasaweb.google.com/data/feed/api/user/default?alt=json&access_token=${user.token}`,
 	)
+		.then((response) => handleErrorRequest(response))
 		.then((response) => {
 			console.log(response);
 		});
@@ -45,8 +28,6 @@ const updateSigninStatus = (isSignedIn) => {
 
 	user.data = gapi.auth2.getAuthInstance().currentUser.get();
 	user.token = user.data.getAuthResponse().access_token;
-
-	console.log(user.token);
 
 	getPicasaData();
 };
