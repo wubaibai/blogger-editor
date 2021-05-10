@@ -89,5 +89,8 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "resolutions": {
+    "handlebars": "^4.7.7"
+  },
   "private": true
 }
